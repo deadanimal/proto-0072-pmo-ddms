@@ -1,0 +1,380 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">
+            Pengurusan Promosi
+          </h6>
+          <!-- <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                      <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                        <li class="breadcrumb-item">
+                          <a href="javascript:void(0)">
+                            <i class="fas fa-file-invoice text-white"></i>
+                          </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                          <a href="javascript:void(0)" class="text-white">
+                            Quality Management
+                          </a>
+                        </li>
+                        <li aria-current="page" class="breadcrumb-item active">
+                          Action
+                        </li>
+                      </ol>
+                    </nav> -->
+        </div>
+        <div class="col-lg-6 col-5 text-right">
+          <a
+            href="javascript:void(0)"
+            class="btn btn-sm btn-default"
+            (click)="openModal(tambahPromosi, undefined)"
+          >
+            Tambah Promosi Baru
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-4 col-md-6">
+          <div class="card card-stats">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">
+                    Jumlah Promosi
+                  </h5>
+                  <span class="h2 font-weight-bold mb-0"> 350,897 </span>
+                </div>
+                <div class="col-auto">
+                  <div
+                    class="icon icon-shape bg-gradient-red text-white rounded-circle shadow"
+                  >
+                    <i class="ni ni-active-40"> </i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-success mr-2">
+                  <i class="fa fa-arrow-up"> </i> 3.48%
+                </span>
+                <span class="text-nowrap"> Since last month </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6">
+          <div class="card card-stats">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">
+                    Promosi Tidak Aktif
+                  </h5>
+                  <span class="h2 font-weight-bold mb-0"> 2,356 </span>
+                </div>
+                <div class="col-auto">
+                  <div
+                    class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow"
+                  >
+                    <i class="ni ni-chart-pie-35"> </i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-success mr-2">
+                  <i class="fa fa-arrow-up"> </i> 3.48%
+                </span>
+                <span class="text-nowrap"> Since last month </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6">
+          <div class="card card-stats">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">
+                    Promosi Aktif
+                  </h5>
+                  <span class="h2 font-weight-bold mb-0"> 924 </span>
+                </div>
+                <div class="col-auto">
+                  <div
+                    class="icon icon-shape bg-gradient-green text-white rounded-circle shadow"
+                  >
+                    <i class="ni ni-money-coins"> </i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-success mr-2">
+                  <i class="fa fa-arrow-up"> </i> 3.48%
+                </span>
+                <span class="text-nowrap"> Since last month </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <h3 class="m-0">Mod Visualisasi</h3>
+        </div>
+        <div class="card-body">
+          <div class="dataTables_wrapper py-4">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="dataTables_length" id="datatable_length">
+                  <label>
+                    Tunjuk
+                    <select
+                      name="datatable_length"
+                      aria-controls="datatable"
+                      class="form-control form-control-sm"
+                      (change)="entriesChange($event)"
+                    >
+                      <option value="5">5</option>
+                      <option value="10">10</option>
+                      <option value="15">15</option>
+                      <option value="20">20</option>
+                    </select>
+                    rekod
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- <div id="datatable_filter" class="dataTables_filter">
+                  <label>
+                    <input
+                      type="search"
+                      class="form-control form-control-sm"
+                      placeholder="Search records"
+                      aria-controls="datatable"
+                      (keyup)="filterTable($event)"
+                    />
+                  </label>
+                </div> -->
+              </div>
+            </div>
+
+            <ngx-datatable
+              class="bootstrap selection-cell"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="'auto'"
+              [limit]="tableEntries != -1 ? tableEntries : undefined"
+              [rows]="listPromosi"
+              (activate)="onActivate($event)"
+            >
+              <ngx-datatable-column name="No">
+                <ng-template
+                  let-rowIndex="rowIndex"
+                  let-row="row"
+                  ngx-datatable-cell-template
+                >
+                  <strong>{{ rowIndex + 1 }}</strong>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Nama</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.name }}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Poster</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <div class="card {{ row.color }}">
+                    <div class="card-body mt-3 mb-3">
+                      <div
+                        class="row justify-content-between align-items-center"
+                      >
+                        <div class="col-auto">
+                          <!-- <span class=" badge badge-lg badge-success"> Active </span> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Status</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <span
+                    class="badge badge-pill badge-info"
+                    *ngIf="row.status == 'hb'"
+                    >Belum Tamat</span
+                  ><span
+                    class="badge badge-pill badge-success"
+                    *ngIf="row.status == 'bj'"
+                  >
+                    Tamat</span
+                  >
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Tarikh</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template
+                  >{{ row.created_at | date: "dd/MM/yyyy" }}
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #editComplain>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Tukar Promosi
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="editActionForm">
+      <div class="form-group">
+        <label class="form-control-label">Nama Promosi</label>
+        <input class="form-control custom-select" />
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+          <label class="form-control-label">Julat Masa</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="far fa-calendar-alt"></i
+              ></span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              bsDaterangepicker
+              [bsConfig]="bsDPConfig"
+              placeholder="Date range"
+              name="bsDaterangepicker"
+            />
+          </div>
+        </div>
+      </div>
+      <input name="id" formControlName="id" type="hidden" />
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div class="text-center">
+      <button
+        class="btn btn-default"
+        type="submit"
+        (click)="editActionDetail()"
+      >
+        Simpan
+      </button>
+
+      <button
+        class="btn btn-outline-danger ml-auto"
+        data-dismiss="modal"
+        type="button"
+        (click)="closeModal()"
+      >
+        Tutup
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tambahPromosi>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Tambah Promosi
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="addNewActionForm">
+      <div class="form-group">
+        <label class="form-control-label">Nama Promosi</label>
+        <input class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="form-control-label">Julat Masa</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"
+              ><i class="far fa-calendar-alt"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            bsDaterangepicker
+            [bsConfig]="bsDPConfig"
+            placeholder="Date range"
+            name="bsDaterangepicker"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div class="text-center">
+      <button class="btn btn-default" type="submit" (click)="addNewAction()">
+        Simpan
+      </button>
+
+      <button
+        class="btn btn-outline-danger ml-auto"
+        data-dismiss="modal"
+        type="button"
+        (click)="closeModal()"
+      >
+        Tutup
+      </button>
+    </div>
+  </div>
+</ng-template>

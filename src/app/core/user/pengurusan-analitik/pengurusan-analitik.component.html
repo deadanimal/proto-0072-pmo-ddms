@@ -1,0 +1,397 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">
+            Pengurusan Analitik
+          </h6>
+          <!-- <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                      <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                          <i class="fas fa-file-invoice text-white"></i>
+                        </a>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <a href="javascript:void(0)" class="text-white">
+                          Quality Management
+                        </a>
+                      </li>
+                      <li aria-current="page" class="breadcrumb-item active">
+                        Action
+                      </li>
+                    </ol>
+                  </nav> -->
+        </div>
+        <div class="col-lg-6 col-5 text-right">
+          <!-- <a
+                href="javascript:void(0)"
+                class="btn btn-sm btn-default"
+                (click)="openModal(addComplain, undefined)"
+              >
+                Add Action
+              </a> -->
+        </div>
+      </div>
+      <!-- <div class="row">
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">
+                        Total Actions
+                      </h5>
+                      <span class="h2 font-weight-bold mb-0"> 350,897 </span>
+                    </div>
+                    <div class="col-auto">
+                      <div
+                        class="icon icon-shape bg-gradient-red text-white rounded-circle shadow"
+                      >
+                        <i class="ni ni-active-40"> </i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                        <span class="text-success mr-2">
+                          <i class="fa fa-arrow-up"> </i> 3.48%
+                        </span>
+                        <span class="text-nowrap"> Since last month </span>
+                      </p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">
+                        Inactive Actions
+                      </h5>
+                      <span class="h2 font-weight-bold mb-0"> 2,356 </span>
+                    </div>
+                    <div class="col-auto">
+                      <div
+                        class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow"
+                      >
+                        <i class="ni ni-chart-pie-35"> </i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                        <span class="text-success mr-2">
+                          <i class="fa fa-arrow-up"> </i> 3.48%
+                        </span>
+                        <span class="text-nowrap"> Since last month </span>
+                      </p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">
+                        Active Actions
+                      </h5>
+                      <span class="h2 font-weight-bold mb-0"> 924 </span>
+                    </div>
+                    <div class="col-auto">
+                      <div
+                        class="icon icon-shape bg-gradient-green text-white rounded-circle shadow"
+                      >
+                        <i class="ni ni-money-coins"> </i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                        <span class="text-success mr-2">
+                          <i class="fa fa-arrow-up"> </i> 3.48%
+                        </span>
+                        <span class="text-nowrap"> Since last month </span>
+                      </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <h3 class="m-0">Tetapan</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label">Tetapan Bahasa</label>
+                <select class="form-control custom-select">
+                  <option checked="true">Bahasa Melayu</option>
+                  <option>Bahasa English</option>
+                  <option>Bahasa Cina</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label">Tetapan Waktu</label>
+                <select class="form-control custom-select">
+                  <option checked="true"
+                    >(UTC+8:00) Kuala Lumpur, Singapore</option
+                  >
+                  <option>(UTC+8:30) Pyongyang</option>
+                  <option>(UTC+9:00) Osaka,Sapporo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-default" type="button">Simpan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <h3 class="m-0">Mod Visualisasi</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card bg-gradient-danger">
+                <div class="card-body mt-5 mb-5">
+                  <div class="row justify-content-between align-items-center">
+                    <div class="col-auto">
+                      <!-- <span class=" badge badge-lg badge-success"> Active </span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-md-6">Tema 1</div>
+                    <div class="col-md-6 text-right">
+                      <span class="badge badge-lg badge-success"> Aktif </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body text-center">
+                  <button class="btn btn-primary" disabled>Guna</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card bg-gradient-success">
+                <div class="card-body mt-5 mb-5">
+                  <div class="row justify-content-between align-items-center">
+                    <div class="col-auto">
+                      <!-- <span class=" badge badge-lg badge-success"> Active </span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-md-6">Tema 2</div>
+                    <div class="col-md-6 text-right">
+                      <span class="badge badge-lg badge-danger">
+                        Tidak Aktif
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body text-center">
+                  <div class="row">
+                    <div class="col-md-6 text-center">
+                      <button
+                        class="btn btn-primary"
+                        (click)="successAlert('lihat')"
+                      >
+                        Guna
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card bg-gradient-primary">
+                <div class="card-body mt-5 mb-5">
+                  <div class="row justify-content-between align-items-center">
+                    <div class="col-auto">
+                      <!-- <span class=" badge badge-lg badge-success"> Active </span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-md-6">Tema 3</div>
+                    <div class="col-md-6 text-right">
+                      <span class="badge badge-lg badge-danger">
+                        Tidak Aktif
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body text-center">
+                  <button class="btn btn-primary">Guna</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #editComplain>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Tukar Analytic
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="editActionForm">
+      <div class="form-group">
+        <label class="form-control-label">Name</label>
+        <input
+          class="form-control"
+          placeholder="Enter Name"
+          formControlName="name"
+          type="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Detail</label>
+        <textarea
+          class="form-control"
+          placeholder="Enter Name"
+          formControlName="detail"
+          type="text"
+        ></textarea>
+      </div>
+
+      <input name="id" formControlName="id" type="hidden" />
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div class="text-center">
+      <button
+        class="btn btn-default"
+        type="submit"
+        (click)="editActionDetail()"
+      >
+        Save
+      </button>
+
+      <button
+        class="btn btn-outline-danger ml-auto"
+        data-dismiss="modal"
+        type="button"
+        (click)="closeModal()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addComplain>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Add New Action
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="addNewActionForm">
+      <div class="form-group">
+        <label class="form-control-label">Name</label>
+        <input
+          class="form-control"
+          placeholder="Enter Name"
+          formControlName="name"
+          type="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Detail</label>
+        <textarea
+          class="form-control"
+          placeholder="Enter Name"
+          formControlName="detail"
+          type="text"
+        ></textarea>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div class="text-center">
+      <button class="btn btn-default" type="submit" (click)="addNewAction()">
+        Save
+      </button>
+
+      <button
+        class="btn btn-outline-danger ml-auto"
+        data-dismiss="modal"
+        type="button"
+        (click)="closeModal()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>

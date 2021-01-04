@@ -1,0 +1,300 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">
+            Pengurusan Halaman (Home)
+          </h6>
+          <!-- <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                      <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                        <li class="breadcrumb-item">
+                          <a href="javascript:void(0)">
+                            <i class="fas fa-file-invoice text-white"></i>
+                          </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                          <a href="javascript:void(0)" class="text-white">
+                            Quality Management
+                          </a>
+                        </li>
+                        <li aria-current="page" class="breadcrumb-item active">
+                          Templat
+                        </li>
+                      </ol>
+                    </nav> -->
+        </div>
+        <div class="col-lg-6 col-5 text-right">
+          <!-- <a
+                href="javascript:void(0)"
+                class="btn btn-sm btn-default"
+                (click)="openModal(addComplain, undefined)"
+              >
+                Add Templat
+              </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <!-- <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header bg-secondary">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Chart</h6>
+    
+                  <h5 class="h3 mb-0">Trend</h5>
+                </div>
+              </div>
+            </div>
+    
+            <div style="width: 100%; height: 450px;" id="chartdivTemplat"></div>
+          </div>
+        </div> -->
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card card-body">
+          <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label>Letak disini!</ngx-dropzone-label>
+            <ngx-dropzone-preview
+              *ngFor="let f of files"
+              [removable]="true"
+              (removed)="onRemove(f)"
+            >
+              <ngx-dropzone-label
+                >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+              >
+            </ngx-dropzone-preview>
+          </ngx-dropzone>
+        </div>
+
+        <div class="card-footer text-right">
+          <button class="btn btn-primary">Simpan</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <h3 class="m-0">Senarai Gambar</h3>
+        </div>
+        <div class="dataTables_wrapper py-4">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="datatable_length">
+                <label>
+                  Show
+                  <select
+                    name="datatable_length"
+                    aria-controls="datatable"
+                    class="form-control form-control-sm"
+                    (change)="entriesChange($event)"
+                  >
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                  </select>
+                  records
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <!-- <div id="datatable_filter" class="dataTables_filter">
+                    <label>
+                      <input
+                        type="search"
+                        class="form-control form-control-sm"
+                        placeholder="Search records"
+                        aria-controls="datatable"
+                        (keyup)="filterTable($event)"
+                      />
+                    </label>
+                  </div> -->
+            </div>
+          </div>
+
+          <ngx-datatable
+            class="bootstrap selection-cell"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [limit]="tableEntries != -1 ? tableEntries : undefined"
+            [rows]="listTemplate"
+            (activate)="onActivate($event)"
+          >
+            <ngx-datatable-column name="Index">
+              <ng-template
+                let-rowIndex="rowIndex"
+                let-row="row"
+                ngx-datatable-cell-template
+              >
+                <strong>{{ rowIndex + 1 }}</strong>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column>
+              <ng-template ngx-datatable-header-template>
+                <span>Gambar</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template
+                ><i class="fas fa-file-alt fa-5x"></i>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column>
+              <ng-template ngx-datatable-header-template>
+                <span>Created</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template
+                >{{ row.created_at | date: "dd/MM/yyyy" }}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column>
+              <ng-template ngx-datatable-header-template>
+                <span> Templat</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button class="btn btn-primary" (click)="successAlert(' guna')">
+                  Guna
+                </button>
+                <button class="btn btn-danger" (click)="successAlert('Padam')">
+                  Buang
+                </button>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #editComplain>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Edit Templat
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="editTemplatForm">
+      <div class="form-group">
+        <label class="form-control-label">Name</label>
+        <input
+          class="form-control"
+          placeholder="Enter Name"
+          formControlName="name"
+          type="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Detail</label>
+        <textarea
+          class="form-control"
+          placeholder="Enter Name"
+          formControlName="detail"
+          type="text"
+        ></textarea>
+      </div>
+
+      <input name="id" formControlName="id" type="hidden" />
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div class="text-center">
+      <button
+        class="btn btn-default"
+        type="submit"
+        (click)="editTemplatDetail()"
+      >
+        Save
+      </button>
+
+      <button
+        class="btn btn-outline-danger ml-auto"
+        data-dismiss="modal"
+        type="button"
+        (click)="closeModal()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addComplain>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Add New Templat
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="addNewTemplatForm">
+      <div class="form-group">
+        <label class="form-control-label">Name</label>
+        <input
+          class="form-control"
+          placeholder="Enter Name"
+          formControlName="name"
+          type="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Detail</label>
+        <textarea
+          class="form-control"
+          placeholder="Enter Name"
+          formControlName="detail"
+          type="text"
+        ></textarea>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div class="text-center">
+      <button class="btn btn-default" type="submit" (click)="addNewTemplat()">
+        Save
+      </button>
+
+      <button
+        class="btn btn-outline-danger ml-auto"
+        data-dismiss="modal"
+        type="button"
+        (click)="closeModal()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>
